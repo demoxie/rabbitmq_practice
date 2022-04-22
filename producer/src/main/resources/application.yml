@@ -10,13 +10,3 @@ spring:
     username: zjilarls
     password: 7M_TAIe7B_70M-USUlpHwqo6e3NbALqt
     virtual-host: zjilarls
-    listener:
-      simple:
-        acknowledge-mode: manual
-#        retry:
-#          enabled: true
-#          initial-interval: 3s
-#          max-interval: 10s
-#          max-attempts: 5
-#          multiplier: 2
-    
