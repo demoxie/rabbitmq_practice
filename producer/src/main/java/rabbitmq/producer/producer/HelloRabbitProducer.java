@@ -6,13 +6,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class HelloRabbitProducer {
-    private final RabbitTemplate rabbitTemplate;
-    @Autowired
-    public HelloRabbitProducer(RabbitTemplate rabbitTemplate) {
-        this.rabbitTemplate = rabbitTemplate;
-    }
 
-    public void sendHello(String name){
-        rabbitTemplate.convertAndSend("course.hello","Hello "+name);
-    }
+	@Autowired
+	private RabbitTemplate rabbitTemplate;
+	
+	public void sendHello(String name) {
+		rabbitTemplate.convertAndSend("course.hello", "Hello " + name);
+	}
+	
 }

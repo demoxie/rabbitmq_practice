@@ -7,20 +7,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-@Service
+//@Service
 public class FixedRateProducer {
-    private final RabbitTemplate rabbitTemplate;
-    private int i = 0;
-    private static final Logger LOG = LoggerFactory.getLogger(FixedRateProducer.class);
 
-    public FixedRateProducer(RabbitTemplate rabbitTemplate) {
-        this.rabbitTemplate = rabbitTemplate;
-    }
-
-    @Scheduled(fixedRate = 500)
-    public void sendMessage(){
-        i++;
-        LOG.info("i is {} ",i);
-        rabbitTemplate.convertAndSend("course.fixedrate","Fixed rate "+i);
-    }
+	@Autowired
+	private RabbitTemplate rabbitTemplate;
+	
+	private int i = 0;
+	
+	private static final Logger LOG = LoggerFactory.getLogger(FixedRateProducer.class);
+	
+	@Scheduled(fixedRate = 500)
+	public void sendMessage() {
+		i++;
+		LOG.info("i is {}", i);
+		rabbitTemplate.convertAndSend("course.fixedrate", "Fixed rate " + i);
+	}
+	
 }
